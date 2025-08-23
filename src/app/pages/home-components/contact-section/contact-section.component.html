@@ -1,0 +1,145 @@
+<section class="container mt-5" id="contact">
+  <div class="row flex-column-reverse flex-lg-row">
+    <div class="col-md-12 col-lg-6 mb-4 mb-md-0">
+      <h2 class="fw-bold mb-3">Your next system shouldn't suck. I can help.</h2>
+      <p class="mb-4">
+        Whether you're rebuilding a broken system or launching your first
+        platform — I'll make it painless, fast, and scalable.
+      </p>
+
+      <div class="response-badge mb-4">
+        <i class="bi bi-clock"></i>
+        <span>Typical response: 4-6 hours</span>
+      </div>
+
+      <div class="d-flex flex-column gap-4">
+        <div class="contact-method primary">
+          <div class="method-icon">
+            <i class="bi bi-whatsapp"></i>
+          </div>
+          <div class="method-content">
+            <h6>WhatsApp</h6>
+            <p>Fastest way to reach me</p>
+            <a href="https://wa.me/201028128912" class="method-link">
+              +20 102 812 8912
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-method">
+          <div class="method-icon">
+            <i class="bi bi-envelope-fill"></i>
+          </div>
+          <div class="method-content">
+            <h6>Email</h6>
+            <p>For detailed discussions</p>
+            <a href="mailto:abdofathy99@outlook.com" class="method-link">
+              abdofathy99outlook.com
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-method">
+          <div class="method-icon">
+            <i class="bi bi-linkedin"></i>
+          </div>
+          <div class="method-content">
+            <h6>LinkedIn</h6>
+            <p>Professional network</p>
+            <a
+              href="https://linkedin.com/in/abdelrahmanfathydev"
+              target="_blank"
+              rel="noopener"
+              class="method-link"
+            >
+              AbdElrahman Fathy
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12 col-lg-6 d-flex flex-column">
+      <h2 class="mb-4">Let's talk about your project</h2>
+      @if (successMessage) {
+      <div class="alert alert-success mt-2">Thanks! I'll be in touch soon.</div>
+      } @if (errorMessage) {
+      <div class="alert alert-danger mt-2">
+        Something went wrong. Try again.
+      </div>
+      }
+
+      <form
+        [formGroup]="contactForm"
+        (ngSubmit)="onSubmit()"
+        data-bs-theme="dark"
+        class="contact-form"
+      >
+        <div class="mb-3">
+          <label for="name" class="form-label">Full Name</label>
+          <input
+            type="text"
+            id="name"
+            class="form-control"
+            formControlName="fullName"
+            placeholder="Your full name"
+          />
+          <span class="">Name is required</span>
+        </div>
+
+        <div class="mb-3">
+          <label for="phone" class="form-label">Phone</label>
+          <input
+            type="tel"
+            class="form-control"
+            id="phone"
+            formControlName="phoneNumber"
+            placeholder="Your phone number"
+          />
+          <span class="text-danger me-2">*</span>
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            formControlName="email"
+            placeholder="your.email@example.com"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea
+            name="message"
+            id="message"
+            class="form-control"
+            rows="3"
+            formControlName="message"
+            placeholder="Tell me about your project..."
+          ></textarea>
+        </div>
+
+        <button class="submit-btn" [disabled]="isLoading">
+          @if (isLoading) {
+          <span
+            class="spinner-border spinner-border-sm me-2"
+            role="status"
+            aria-hidden="true"
+          ></span>
+          Sending... } @else {
+          <span>Send Message</span>
+          <i class="bi bi-send ms-2"></i>
+          }
+        </button>
+
+        <p class="form-note">
+          <i class="bi bi-shield-check me-2"></i>
+          Your information stays private. No spam, ever.
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
