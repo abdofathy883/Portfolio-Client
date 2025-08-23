@@ -136,6 +136,10 @@ textarea.form-control {
   min-height: 100px;
 }
 
+.small-text {
+  font-size: 0.85rem;
+}
+
 .submit-btn {
   width: 100%;
   background: linear-gradient(135deg, #ffd700, #ffed4e);

@@ -1,4 +1,7 @@
 /* Animated Background */
+section.h-100 {
+  padding-top: 80px; /* Adjust this value based on your header height */
+}
 .hero-background {
   position: absolute;
   top: 0;
@@ -413,6 +416,15 @@
 }
 
 @media (max-width: 768px) {
+  section.h-100 {
+    padding-top: 100px; /* Slightly less padding on mobile */
+  }
+
+  .cta-primary,
+  .cta-secondary {
+    padding: 1rem;
+  }
+  
   .hero-title {
     font-size: 2.2rem;
   }
