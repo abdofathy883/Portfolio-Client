@@ -1,0 +1,84 @@
+<div class="container py-5">
+
+  <!-- Hero Section -->
+  <div class="row align-items-center mb-5">
+    <div class="col-lg-6">
+      <h1 class="display-4 fw-bold" id="projectTitle">Project Title</h1>
+      <p class="lead" id="projectTagline">Short, catchy tagline that makes the client curious.</p>
+      <div class="mb-3">
+        <a href="#" id="liveUrl" class="btn btn-primary me-2" target="_blank">View Live</a>
+        <a href="#" id="demoUrl" class="btn btn-outline-secondary" target="_blank">View Demo</a>
+      </div>
+    </div>
+    <div class="col-lg-6 text-center">
+      <video id="projectVideo" class="img-fluid rounded shadow" controls poster="fallback.jpg">
+        <source src="video.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
+  <!-- Problem & Solution -->
+  <div class="row mb-5">
+    <div class="col-md-6">
+      <h3 class="fw-bold">The Problem</h3>
+      <p id="projectProblem">Describe the pain point clearly, so the client feels understood.</p>
+    </div>
+    <div class="col-md-6">
+      <h3 class="fw-bold">Our Solution</h3>
+      <p id="projectSolution">Show how your project solves it — highlight unique strengths.</p>
+    </div>
+  </div>
+
+  <!-- Gallery -->
+  <div class="mb-5">
+    <h3 class="fw-bold mb-4">Project Gallery</h3>
+    <div class="row g-3" id="projectGallery">
+      <!-- Example Image -->
+      <div class="col-sm-6 col-md-4">
+        <img src="image1.jpg" class="img-fluid rounded shadow-sm" alt="Screenshot 1">
+      </div>
+    </div>
+  </div>
+
+  <!-- Description & Technologies -->
+  <div class="row mb-5">
+    <div class="col-md-8">
+      <h3 class="fw-bold">Project Overview</h3>
+      <p id="projectDescription">Detailed description that explains how the project works, without overloading the reader.</p>
+    </div>
+    <div class="col-md-4">
+      <h4 class="fw-bold">Technologies Used</h4>
+      <div id="techBadges">
+        <span class="badge bg-primary me-1 mb-1">Angular</span>
+        <span class="badge bg-secondary me-1 mb-1">.NET Core</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Client Info -->
+  <div class="mb-5">
+    <h4 class="fw-bold">Client</h4>
+    <p id="projectClient">Client Name or Company</p>
+  </div>
+
+  <!-- Inquiry Form -->
+  <div class="p-4 rounded shadow-sm">
+    <h3 class="fw-bold mb-3">Get Your Version of This Project</h3>
+    <form id="inquiryForm" data-bs-theme="dark">
+      <div class="mb-3">
+        <label for="clientName" class="form-label">Your Name</label>
+        <input type="text" class="form-control" id="clientName" required>
+      </div>
+      <div class="mb-3">
+        <label for="clientEmail" class="form-label">Your Email</label>
+        <input type="email" class="form-control" id="clientEmail" required>
+      </div>
+      <div class="mb-3">
+        <label for="projectDetails" class="form-label">Tell us about your needs</label>
+        <textarea class="form-control" id="projectDetails" rows="4"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Request a Quote</button>
+    </form>
+  </div>
+
+</div>

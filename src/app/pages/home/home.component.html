@@ -1,0 +1,539 @@
+<section class="hero-section" id="home">
+  <div class="hero-background">
+    <div class="floating-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+      <div class="shape shape-4"></div>
+      <div class="shape shape-5"></div>
+    </div>
+    <!-- <div class="gradient-overlay"></div> -->
+  </div>
+
+  <div class="container hero-content">
+    <div class="row align-items-center min-vh-100">
+      <!-- LEFT: Visual Element -->
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="hero-visual">
+          <div class="device-mockup">
+            <div class="screen">
+              <div class="screen-content">
+                <div class="app-header">
+                  <div class="app-dots">
+                    <span></span>
+                    <span></span>
+                  </div>
+                  <div class="app-title">Dashboard</div>
+                </div>
+                <div class="dashboard-elements">
+                  <div class="chart-element"></div>
+                  <div class="stats-row">
+                    <div class="stat-card"></div>
+                    <div class="stat-card"></div>
+                  </div>
+                  <div class="data-visualization"></div>
+                </div>
+              </div>
+            </div>
+            <div class="device-glow"></div>
+          </div>
+
+          <!-- Floating tech icons -->
+          <div class="floating-tech-icons">
+            <div class="tech-icon icon-1" data-tech="React">
+              <i class="bi bi-code-slash"></i>
+            </div>
+            <div class="tech-icon icon-2" data-tech="Node.js">
+              <i class="bi bi-server"></i>
+            </div>
+            <div class="tech-icon icon-3" data-tech="Database">
+              <i class="bi bi-database"></i>
+            </div>
+            <div class="tech-icon icon-4" data-tech="Cloud">
+              <i class="bi bi-cloud-check"></i>
+            </div>
+            <div class="tech-icon icon-5" data-tech="Analytics">
+              <i class="bi bi-graph-up"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Hero Copy -->
+      <div class="col-lg-6">
+        <div class="hero-text">
+          <div class="hero-badge mt-3">
+            <span class="badge-dot"></span>
+            <span>Available for new projects</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span class="title-line">{{ "hero_before" | translate }}</span>
+            <span class="title-line highlight">{{
+              "hero_after" | translate
+            }}</span>
+            <span class="title-cursor">|</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            I transform chaotic business processes into elegant, scalable
+            systems.
+            <strong>No bloated solutions. No endless meetings.</strong>
+            Just clean code that delivers results.
+          </p>
+
+          <!-- <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-number">50+</span>
+              <span class="stat-label">Projects Delivered</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">98%</span>
+              <span class="stat-label">Client Satisfaction</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">5+</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+          </div> -->
+
+          <div class="hero-actions">
+            <a href="#contact" class="cta-primary">
+              <span>Start Your Project</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+            <a href="#projects" class="cta-secondary">
+              <span>View My Work</span>
+              <i class="bi bi-play-circle"></i>
+            </a>
+          </div>
+
+          <!-- <div class="hero-social-proof">
+            <p class="social-proof-text">Trusted by startups and enterprises</p>
+            <div class="client-logos">
+              <div class="client-logo">Client A</div>
+              <div class="client-logo">Client B</div>
+              <div class="client-logo">Client C</div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <!-- <div class="scroll-indicator">
+    <div class="scroll-text">Scroll to explore</div>
+    <div class="scroll-arrow">
+      <i class="bi bi-arrow-down"></i>
+    </div>
+  </div> -->
+</section>
+
+<!-- projects -->
+<section class="container mt-4" id="projects">
+  <h3 class="text-center">Projects That Made a Difference</h3>
+  <p class="text-center mb-4">
+    Each one built to solve a real business problem — fast, functional, and
+    maintainable.
+  </p>
+  <div class="projects-grid">
+    @for (project of projects; track $index) {
+    <div
+      class="project-card"
+      data-aos="fade-up"
+      [attr.data-aos-delay]="$index * 100"
+    >
+      <div class="card-glow"></div>
+      <div class="card-content">
+        <div class="card-image-container">
+          <img [src]="project.image" class="card-image" [alt]="project.title" />
+          <div class="image-overlay"></div>
+        </div>
+
+        <div class="card-body">
+          <div class="project-header">
+            <div class="div">
+              <h5 class="project-title">{{ project.title }}</h5>
+              <div class="title-underline"></div>
+            </div>
+          </div>
+
+          <p class="project-description">{{ project.description }}</p>
+
+          <div class="tech-stack">
+            @for (tech of project.tech; track $index) {
+            <span class="tech-tag" [style.animation-delay]="$index * 0.1 + 's'">
+              {{ tech }}
+            </span>
+            }
+          </div>
+
+          <div class="card-actions">
+            <button class="button" (click)="goToProject(project.id)">
+              <span class="btn-text">View Details</span>
+              <span class="btn-icon">
+                <i class="bi bi-arrow-up-right"></i>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</section>
+
+<!-- process -->
+<!-- <section id="process" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">How I Work</h2>
+    <p class="text-center mb-5">
+      A clear, structured process to deliver results that align with your goals.
+    </p>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3" data-aos="fade-right" data-aos-delay="100">
+        <div class="text-center p-4 border rounded h-100">
+          <div class="mb-3 fs-1 text-primary">
+            <i class="bi bi-search"></i>
+          </div>
+          <h5 class="mb-2">1. Discovery</h5>
+          <p class="small">
+            Understand your business, goals, and pain points through quick calls
+            or a detailed brief.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="text-center p-4 border rounded h-100">
+          <div class="mb-3 fs-1 text-success">
+            <i class="bi bi-diagram-3"></i>
+          </div>
+          <h5 class="mb-2">2. Planning</h5>
+          <p class="small">
+            Translate your requirements into a clear development roadmap, with
+            milestones and timelines.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="text-center p-4 border rounded h-100">
+          <div class="mb-3 fs-1 text-warning">
+            <i class="bi bi-tools"></i>
+          </div>
+          <h5 class="mb-2">3. Build</h5>
+          <p class="small">
+            Develop iteratively with continuous feedback and complete
+            transparency through regular updates.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="text-center p-4 border rounded h-100">
+          <div class="mb-3 fs-1 text-danger">
+            <i class="bi bi-rocket-takeoff"></i>
+          </div>
+          <h5 class="mb-2">4. Launch</h5>
+          <p class="small">
+            Deliver, deploy, and support the product with smooth handover,
+            documentation, and optional training.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- process timeline -->
+<section id="process" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">How I Work</h2>
+    <p class="text-center mb-5">
+      A clear, structured process to deliver results that align with your goals.
+    </p>
+
+    <div class="timeline">
+      <!-- Step 1 -->
+      <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+        <div class="timeline-marker">
+          <div class="timeline-icon">
+            <i class="bi bi-search text-primary"></i>
+          </div>
+          <div class="timeline-number">1</div>
+        </div>
+        <div class="timeline-content">
+          <h5 class="mb-2">Discovery</h5>
+          <p class="mb-0">
+            Understand your business, goals, and pain points through quick calls
+            or a detailed brief.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
+        <div class="timeline-marker">
+          <div class="timeline-icon">
+            <i class="bi bi-diagram-3 text-success"></i>
+          </div>
+          <div class="timeline-number">2</div>
+        </div>
+        <div class="timeline-content">
+          <h5 class="mb-2">Planning</h5>
+          <p class="mb-0">
+            Translate your requirements into a clear development roadmap, with
+            milestones and timelines.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
+        <div class="timeline-marker">
+          <div class="timeline-icon">
+            <i class="bi bi-tools text-warning"></i>
+          </div>
+          <div class="timeline-number">3</div>
+        </div>
+        <div class="timeline-content">
+          <h5 class="mb-2">Build</h5>
+          <p class="mb-0">
+            Develop iteratively with continuous feedback and complete
+            transparency through regular updates.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="timeline-item" data-aos="fade-left" data-aos-delay="400">
+        <div class="timeline-marker">
+          <div class="timeline-icon">
+            <i class="bi bi-rocket-takeoff text-danger"></i>
+          </div>
+          <div class="timeline-number">4</div>
+        </div>
+        <div class="timeline-content">
+          <h5 class="mb-2">Launch</h5>
+          <p class="mb-0">
+            Deliver, deploy, and support the product with smooth handover,
+            documentation, and optional training.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- about me -->
+<section class="container py-5" id="about">
+  <div class="row align-items-center">
+    <div class="col-md-12 col-lg-6 mb-4 mb-md-0">
+      <img
+        src="./assets/website-builder.svg"
+        alt="Software engineer illustration"
+        class="img-fluid rounded"
+      />
+    </div>
+    <div class="col-md-12 col-lg-6">
+      <h2 class="mb-3">Software Engineer Who Builds Systems That Scale</h2>
+      <p class="lead mb-4">
+        I help businesses turn messy processes into clean, efficient systems.
+        Whether you're launching something new or replacing a broken workflow —
+        I deliver solutions that work, scale, and last.
+      </p>
+      <ul class="list-unstyled">
+        <li class="mb-2">
+          <i class="bi bi-check-circle-fill text-primary me-2"></i>
+          100% custom-built — no bloated templates, no one-size-fits-all.
+        </li>
+        <li class="mb-2">
+          <i class="bi bi-check-circle-fill text-primary me-2"></i>
+          Systems thinking: clear architecture, clear results.
+        </li>
+        <li class="mb-2">
+          <i class="bi bi-check-circle-fill text-primary me-2"></i>
+          Strong communicator — I ask the right questions, and explain in plain
+          language.
+        </li>
+        <li class="mb-2">
+          <i class="bi bi-check-circle-fill text-primary me-2"></i>
+          Proven delivery across multiple industries and system types.
+        </li>
+      </ul>
+      <p class="mt-4">
+        Let’s build something that makes your operations smoother and your
+        business stronger.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- contact -->
+<section class="container mt-5" id="contact">
+  <div class="row flex-column-reverse flex-lg-row">
+    <div class="col-md-12 col-lg-6 mb-4 mb-md-0">
+      <h2 class="fw-bold mb-3">Your next system shouldn't suck. I can help.</h2>
+      <p class="mb-4">
+        Whether you're rebuilding a broken system or launching your first
+        platform — I'll make it painless, fast, and scalable.
+      </p>
+
+      <div class="response-badge mb-4">
+        <i class="bi bi-clock"></i>
+        <span>Typical response: 4-6 hours</span>
+      </div>
+
+      <div class="contact-methods">
+        <div class="contact-method primary">
+          <div class="method-icon">
+            <i class="bi bi-whatsapp"></i>
+          </div>
+          <div class="method-content">
+            <h6>WhatsApp</h6>
+            <p>Fastest way to reach me</p>
+            <a href="https://wa.me/201028128912" class="method-link">
+              +20 102 812 8912
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-method">
+          <div class="method-icon">
+            <i class="bi bi-envelope-fill"></i>
+          </div>
+          <div class="method-content">
+            <h6>Email</h6>
+            <p>For detailed discussions</p>
+            <a href="mailto:abdofathy99@outlook.com" class="method-link">
+              abdofathy99outlook.com
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-method">
+          <div class="method-icon">
+            <i class="bi bi-linkedin"></i>
+          </div>
+          <div class="method-content">
+            <h6>LinkedIn</h6>
+            <p>Professional network</p>
+            <a
+              href="https://linkedin.com/in/abdelrahmanfathydev"
+              target="_blank"
+              rel="noopener"
+              class="method-link"
+            >
+              AbdElrahman Fathy
+            </a>
+          </div>
+        </div>
+
+        <!-- <div class="contact-method">
+          <div class="method-icon">
+            <i class="bi bi-github"></i>
+          </div>
+          <div class="method-content">
+            <h6>GitHub</h6>
+            <p>Check out my code</p>
+            <a href="https://github.com/abdofathy883" 
+               target="_blank" 
+               rel="noopener" 
+               class="method-link">
+              Abdo Fathy
+            </a>
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+    <div class="col-md-12 col-lg-6 d-flex flex-column">
+      <h2 class="mb-4">Let's talk about your project</h2>
+      @if (successMessage) {
+      <div class="alert alert-success mt-2">Thanks! I'll be in touch soon.</div>
+      } @if (errorMessage) {
+      <div class="alert alert-danger mt-2">
+        Something went wrong. Try again.
+      </div>
+      }
+      <!-- <div class="form-header">
+
+      </div> -->
+
+      <form
+        [formGroup]="contactForm"
+        (ngSubmit)="onSubmit()"
+        data-bs-theme="dark"
+        class="contact-form"
+      >
+        <div class="mb-3">
+          <label for="name" class="form-label">Full Name</label>
+          <input
+            type="text"
+            id="name"
+            class="form-control"
+            formControlName="fullName"
+            placeholder="Your full name"
+          />
+          <span class="">Name is required</span>
+        </div>
+
+        <div class="mb-3">
+          <label for="phone" class="form-label">Phone</label>
+          <input
+            type="tel"
+            class="form-control"
+            id="phone"
+            formControlName="phoneNumber"
+            placeholder="Your phone number"
+          />
+          <span class="text-danger me-2">*</span>
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            formControlName="email"
+            placeholder="your.email@example.com"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea
+            name="message"
+            id="message"
+            class="form-control"
+            rows="3"
+            formControlName="message"
+            placeholder="Tell me about your project..."
+          ></textarea>
+        </div>
+
+        <button class="submit-btn" [disabled]="isLoading">
+          @if (isLoading) {
+          <span
+            class="spinner-border spinner-border-sm me-2"
+            role="status"
+            aria-hidden="true"
+          ></span>
+          Sending... } @else {
+          <span>Send Message</span>
+          <i class="bi bi-send ms-2"></i>
+          }
+        </button>
+
+        <p class="form-note">
+          <i class="bi bi-shield-check me-2"></i>
+          Your information stays private. No spam, ever.
+        </p>
+      </form>
+    </div>
+  </div>
+</section>

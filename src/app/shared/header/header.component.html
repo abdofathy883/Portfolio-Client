@@ -1,0 +1,88 @@
+<header class="header">
+  <div class="header-container">
+    <!-- Logo -->
+    <div class="logo-section">
+      <a href="#home" class="logo">
+        <img src="./assets/placeholder-logo.png" alt="Portfolio Logo" class="logo-image">
+        <span class="logo-text">Portfolio</span>
+      </a>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="nav-menu" [class.nav-open]="isMenuOpen">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="#home" class="nav-link" [class.active]="activeSection === 'home'">
+            <span class="nav-text">{{ 'home' | translate }}</span>
+            <span class="nav-indicator"></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#projects" class="nav-link" [class.active]="activeSection === 'projects'">
+            <span class="nav-text">{{ 'projects' | translate }}</span>
+            <span class="nav-indicator"></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#process" class="nav-link" [class.active]="activeSection === 'process'">
+            <span class="nav-text">{{ 'process' | translate }}</span>
+            <span class="nav-indicator"></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#about" class="nav-link" [class.active]="activeSection === 'about'">
+            <span class="nav-text">{{ 'about_me' | translate }}</span>
+            <span class="nav-indicator"></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#contact" class="nav-link" [class.active]="activeSection === 'contact'">
+            <span class="nav-text">{{ 'contact_me' | translate }}</span>
+            <span class="nav-indicator"></span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Right Section -->
+    <div class="header-actions">
+      <!-- Language Switcher -->
+      <div class="language-switcher">
+        <div class="switcher-container" (click)="toggleLanguageMenu()" [class.open]="isLanguageMenuOpen">
+          <div class="current-language">
+            <i class="bi bi-translate"></i>
+            <span>{{ currentLang.toUpperCase() }}</span>
+            <i class="bi bi-chevron-down switcher-arrow"></i>
+          </div>
+          
+          <div class="language-dropdown" [class.show]="isLanguageMenuOpen">
+            <div class="language-option" (click)="switchLanguage('en')">
+              <div class="lang-icon">EN</div>
+              <span>English</span>
+            </div>
+            <div class="language-option" (click)="switchLanguage('ar')">
+              <div class="lang-icon">AR</div>
+              <span>العربية</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Button -->
+      <a href="#contact" class="contact-btn">
+        <span>{{ 'contact_button' | translate }}</span>
+        <i class="bi bi-arrow-right"></i>
+      </a>
+
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-toggle" (click)="toggleMenu()" [class.open]="isMenuOpen">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Overlay -->
+  <div class="mobile-nav-overlay" [class.show]="isMenuOpen" (click)="closeMenu()"></div>
+</header>
