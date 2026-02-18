@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiBaseUrl: 'https://abdofathy.cloud/api'
+  apiBaseUrl: 'https://api.abdofathy.cloud/api'
 };

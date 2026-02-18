@@ -33,8 +33,8 @@
           <div class="method-content">
             <h6>Email</h6>
             <p>For detailed discussions</p>
-            <a href="mailto:abdofathy99@outlook.com" class="method-link">
-              abdofathy99outlook.com
+            <a href="mailto:abdo.fathy.za@gmail.com" class="method-link">
+              abdo.fathy.za&#64;gmail.com
             </a>
           </div>
         </div>
@@ -98,6 +98,7 @@
           />
           <p class="text-muted mt-1 me-3 small-text">Phone is required</p>
         </div>
+        <input type="text" class="form-control" formControlName="website" style="display: none" />
 
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
@@ -122,8 +123,8 @@
           ></textarea>
         </div>
 
-        <button class="submit-btn" [disabled]="isLoading">
-          @if (isLoading) {
+        <button class="submit-btn" [disabled]="isSending">
+          @if (isSending) {
           <span
             class="spinner-border spinner-border-sm me-2"
             role="status"

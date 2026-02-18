@@ -1,7 +1,8 @@
 export interface ContactForm {
-    FullName: string;
-    PhoneNumber: string;
-    Email: string;
-    Message: string;
-    TimeStamp: Date
+    fullName: string;
+    phoneNumber: string;
+    email: string;
+    message: string;
+    website?: string;
+    recaptchaToken: string;
 }
