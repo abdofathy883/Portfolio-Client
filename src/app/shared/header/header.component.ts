@@ -4,7 +4,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
-  imports: [TranslatePipe],
+  imports: [],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
@@ -42,8 +42,8 @@ export class HeaderComponent implements OnInit{
   }
 
   // Add scroll listener to detect active section
-  @HostListener('window:scroll', ['$event'])
-  onScroll() {
-    // Logic to update activeSection based on scroll position
-  }
+  // @HostListener('window:scroll', ['$event'])
+  // onScroll() {
+  //   // Logic to update activeSection based on scroll position
+  // }
 }
