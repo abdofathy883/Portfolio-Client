@@ -71,16 +71,16 @@
         <div class="switcher-container" (click)="toggleLanguageMenu()" [class.open]="isLanguageMenuOpen">
           <div class="current-language">
             <i class="bi bi-translate"></i>
-            <span>{{ currentLang.toUpperCase() }}</span>
+            <span>{{ getCurrentLangLabel(currentLang) }}</span>
             <i class="bi bi-chevron-down switcher-arrow"></i>
           </div>
           
           <div class="language-dropdown" [class.show]="isLanguageMenuOpen">
-            <div class="language-option" (click)="switchLanguage('en')">
+            <div class="language-option" (click)="switchLanguage(1)">
               <div class="lang-icon">EN</div>
               <span>English</span>
             </div>
-            <div class="language-option" (click)="switchLanguage('ar')">
+            <div class="language-option" (click)="switchLanguage(0)">
               <div class="lang-icon">AR</div>
               <span>العربية</span>
             </div>

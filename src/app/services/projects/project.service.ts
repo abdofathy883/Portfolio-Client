@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../api-service/api.service';
 import { Observable } from 'rxjs';
-import { Project } from '../../models/projects/project';
+import { IProject, Language } from '../../models/projects/i-project';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +10,11 @@ export class ProjectService {
   private endpoint = 'projects'
   constructor(private api: ApiService) { }
 
-  getAll(): Observable<Project[]> {
-    return this.api.get<Project[]>(this.endpoint)
+  getAll(lang: Language): Observable<IProject[]> {
+    return this.api.get<IProject[]>(`${this.endpoint}/${lang}`);
   }
 
-  getById(id: number): Observable<Project> {
-    return this.api.get<Project>(`${this.endpoint}/${id}`)
+  getBySlug(slug: string, lang: Language): Observable<IProject> {
+    return this.api.get<IProject>(`${this.endpoint}/${slug}/${lang}`);
   }
 }

@@ -1,3 +1,4 @@
+import { Language } from './../../models/projects/i-project';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { LanguageService } from '../../services/languages/language.service';
 import { TranslatePipe } from '@ngx-translate/core';
@@ -19,7 +20,7 @@ export class HeaderComponent implements OnInit{
   isMenuOpen = false;
   isLanguageMenuOpen = false;
   activeSection = 'home';
-  currentLang = 'en'; // or get from your language service
+  currentLang: Language = Language.en; // or get from your language service
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
@@ -29,21 +30,22 @@ export class HeaderComponent implements OnInit{
     this.isMenuOpen = false;
   }
 
-  toggleLanguageMenu() {
-    this.isLanguageMenuOpen = !this.isLanguageMenuOpen;
-  }
+  // toggleLanguageMenu() {
+  //   this.isLanguageMenuOpen = !this.isLanguageMenuOpen;
+  // }
 
-  switchLanguage(lang: string) {
-    this.currentLang = lang;
-    this.isLanguageMenuOpen = false;
-    // Your existing language switch logic
-    this.langService.switchLanguage(lang);
-    console.log(this.currentLang)
-  }
+  // switchLanguage(lang: Language) {
+  //   this.currentLang = lang;
+  //   this.isLanguageMenuOpen = false;
+  //   // Your existing language switch logic
+  //   this.langService.switchLanguage(lang);
+  // }
 
-  // Add scroll listener to detect active section
-  // @HostListener('window:scroll', ['$event'])
-  // onScroll() {
-  //   // Logic to update activeSection based on scroll position
+  // getCurrentLangLabel(lang: number) : string {
+  //   if (lang == 0) {
+  //     return 'AR';
+  //   } else {
+  //     return 'EN';
+  //   }
   // }
 }

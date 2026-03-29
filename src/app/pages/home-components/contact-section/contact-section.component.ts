@@ -75,6 +75,8 @@ export class ContactSectionComponent implements OnInit{
           website: this.contactForm.get('website')?.value || undefined,
           recaptchaToken: token,
         };
+
+        console.log(entry)
         this.contactService.send(entry).subscribe({
           next: () => {
             this.contactForm.reset();
