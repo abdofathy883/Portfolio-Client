@@ -63,17 +63,22 @@ export class ContactSectionComponent implements OnInit{
     if (this.contactForm.invalid || this.isSending) return;
 
     this.isSending = true;
-    this.reCaptchaV3Service.execute(
-      this.siteKey,
-      'contact_submit',
-      (token) => {
-        const entry: ContactForm = {
+    // this.reCaptchaV3Service.execute(
+    //   this.siteKey,
+    //   'contact_submit',
+    //   (token) => {
+        
+    //   },
+    //   { useGlobalDomain: false },
+    // );
+
+    const entry: ContactForm = {
           fullName: this.contactForm.get('fullName')?.value ?? '',
           phoneNumber: this.contactForm.get('phoneNumber')?.value ?? '',
           email: this.contactForm.get('email')?.value ?? '',
           message: this.contactForm.get('message')?.value ?? '',
           website: this.contactForm.get('website')?.value || undefined,
-          recaptchaToken: token,
+          recaptchaToken: '',
         };
 
         console.log(entry)
@@ -91,8 +96,5 @@ export class ContactSectionComponent implements OnInit{
             console.log('Failed to submit contact form', error);
           },
         });
-      },
-      { useGlobalDomain: false },
-    );
   }
 }
