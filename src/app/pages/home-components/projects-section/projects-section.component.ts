@@ -24,11 +24,11 @@ export class ProjectsSectionComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
 
   ngOnInit(): void {
-    this.currentLanguage = this.languageService.currentLang();
+    // this.currentLanguage = this.languageService.currentLang();
     this.loadProjects();
-    this.translateService.onLangChange.pipe(takeUntil(this.destroy$)).subscribe(() => {
-      this.loadProjects();
-    });
+    // this.translateService.onLangChange.pipe(takeUntil(this.destroy$)).subscribe(() => {
+    //   this.loadProjects();
+    // });
     // Initialize AOS animations
     // @ts-ignore
     // import('aos').then((AOS) => {
